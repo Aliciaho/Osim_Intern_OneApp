@@ -126,18 +126,20 @@ class _StartMeasurePageState extends State<StartMeasurePage> {
 
   Padding _buildStatsRow(context) {
     return Padding(
-      padding: const EdgeInsets.all(48.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          _buildSubColumn(context, "Sys (mm Hg)", "118"),
-          VerticalDivider(
-            width: 80.0,
-            thickness: 3.0,
-          ),
-          _buildSubColumn(context, "Dia (mm Hg)", "64"),
-        ],
+      padding: const EdgeInsets.only(top: 40.0, bottom: 40.0),
+      child: IntrinsicHeight(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            _buildSubColumn(context, "Sys (mm Hg)", "118"),
+            VerticalDivider(
+              width: 80.0,
+              thickness: 3.0,
+            ),
+            _buildSubColumn(context, "Dia (mm Hg)", "64"),
+          ],
+        ),
       ),
     );
   }
@@ -147,7 +149,7 @@ class _StartMeasurePageState extends State<StartMeasurePage> {
       children: <Widget>[
         Text(title, style: Theme.of(context).textTheme.headline1),
         SizedBox(
-          height: 3.0,
+          height: 10.0,
         ),
         Text(number, style: Theme.of(context).textTheme.headline2),
       ],

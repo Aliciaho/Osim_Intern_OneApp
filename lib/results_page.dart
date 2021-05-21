@@ -47,13 +47,16 @@ class _ResultsPageState extends State<ResultsPage> {
     List<Product> _products = dummyData;
 
     return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         _buildStatsContainer(context),
         _buildRangeText(context),
         _buildViewResultsButton(context),
         _buildRetakeButton(context),
-        Spacer(),
-        _buildRecommendContainer(context),
+        Padding(
+            padding: EdgeInsets.only(top: 35),
+            child: _buildRecommendContainer(context)),
         _buildScrollContainer(_products),
       ],
     );
@@ -61,21 +64,26 @@ class _ResultsPageState extends State<ResultsPage> {
 
   Container _buildScrollContainer(List<Product> _products) {
     return Container(
-      height: 280,
+      alignment: Alignment.center,
+      height: 200,
+      width: double.infinity,
       color: Colors.grey[100],
-      padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 70.0),
-      child: ListView.separated(
-        separatorBuilder: (context, index) => SizedBox(
-          width: 10,
+      padding: EdgeInsets.only(top: 10, left: 20, right: 20),
+      child: Container(
+        height: 175,
+        child: ListView.separated(
+          separatorBuilder: (context, index) => SizedBox(
+            width: 10,
+          ),
+          scrollDirection: Axis.horizontal,
+          itemCount: _products.length,
+          itemBuilder: (context, index) {
+            return ProductCard(
+              productName: _products[index].productName,
+              imageVal: _products[index].imageVal,
+            );
+          },
         ),
-        scrollDirection: Axis.horizontal,
-        itemCount: _products.length,
-        itemBuilder: (context, index) {
-          return ProductCard(
-            productName: _products[index].productName,
-            imageVal: _products[index].imageVal,
-          );
-        },
       ),
     );
   }
@@ -107,7 +115,7 @@ class _ResultsPageState extends State<ResultsPage> {
 
   Padding _buildViewResultsButton(context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 15.0),
+      padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 10.0),
       child: Container(
         width: double.infinity,
         child: OutlinedButton(

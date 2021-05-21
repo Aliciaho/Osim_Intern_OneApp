@@ -9,14 +9,17 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 175,
-      height: 175,
+      width: 160,
+      height: 160,
       child: Card(
         elevation: 5.0,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10))),
+            borderRadius: BorderRadius.all(
+          Radius.circular(10),
+        )),
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 20.0),
+          //padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.only(bottom: 15.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
