@@ -74,45 +74,31 @@ class _StartMeasurePageState extends State<StartMeasurePage> {
     );
   }
 
-  Row _buildRowBpm(context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Image.asset("assets/heartbeat.png"),
-        RichText(
-          textAlign: TextAlign.start,
-          text: TextSpan(
+  IntrinsicHeight _buildRowBpm(context) {
+    return IntrinsicHeight(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Image.asset("assets/heartbeat.png"),
+          Text(
+            " / Min :",
             style: Theme.of(context).textTheme.headline1,
-            children: <TextSpan>[
-              new TextSpan(text: " / Min :"),
-              new TextSpan(
-                text: " 70 ",
-                style: Theme.of(context).textTheme.headline3,
-              ),
-              new TextSpan(
-                  text: "Bpm", style: Theme.of(context).textTheme.bodyText1),
-            ],
           ),
-        ),
-        // Text(
-        //   " / Min:",
-        //   style: Theme.of(context).textTheme.headline1,
-        // ),
-        // SizedBox(width: 10),
-        // Text(
-        //   "70",
-        //   style: Theme.of(context).textTheme.headline3,
-        // ),
-        // SizedBox(width: 5),
-        // Align(
-        //   alignment: Alignment.bottomRight,
-        //   child: Text(
-        //     "Bpm",
-        //     textAlign: TextAlign.end,
-        //     style: Theme.of(context).textTheme.bodyText1,
-        //   ),
-        // )
-      ],
+          SizedBox(width: 10),
+          Text(
+            "70",
+            style: Theme.of(context).textTheme.headline3,
+          ),
+          SizedBox(width: 5),
+          Align(
+            alignment: Alignment(1.0, 0.6),
+            child: Text(
+              "Bpm",
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+          )
+        ],
+      ),
     );
   }
 

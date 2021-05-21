@@ -60,7 +60,7 @@ class _ResultsPageState extends State<ResultsPage> {
   Container _buildScrollContainer(List<Product> _products) {
     return Container(
       height: 280,
-      color: Colors.grey[200],
+      color: Colors.grey[100],
       padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 70.0),
       child: ListView.separated(
         separatorBuilder: (context, index) => SizedBox(
@@ -188,43 +188,31 @@ class _ResultsPageState extends State<ResultsPage> {
     );
   }
 
-  Row _buildRowBpm(context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Image.asset("assets/heartbeat.png"),
-        RichText(
-          text: TextSpan(
+  IntrinsicHeight _buildRowBpm(context) {
+    return IntrinsicHeight(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Image.asset("assets/heartbeat.png"),
+          Text(
+            " / Min :",
             style: Theme.of(context).textTheme.headline1,
-            children: <TextSpan>[
-              new TextSpan(text: " / Min :"),
-              new TextSpan(
-                text: " 70 ",
-                style: Theme.of(context).textTheme.headline3,
-              ),
-              new TextSpan(
-                  text: "Bpm", style: Theme.of(context).textTheme.bodyText1),
-            ],
           ),
-        ),
-        // Text(
-        //   " / Min:",
-        //   style: Theme.of(context).textTheme.headline1,
-        // ),
-        // SizedBox(width: 10),
-        // Text(
-        //   "70",
-        //   style: Theme.of(context).textTheme.headline3,
-        // ),
-        // SizedBox(width: 5),
-        // Align(
-        //   alignment: Alignment.bottomRight,
-        //   child: Text(
-        //     "Bpm",
-        //     style: Theme.of(context).textTheme.bodyText1,
-        //   ),
-        // )
-      ],
+          SizedBox(width: 10),
+          Text(
+            "70",
+            style: Theme.of(context).textTheme.headline3,
+          ),
+          SizedBox(width: 5),
+          Align(
+            alignment: Alignment(1.0, 0.6),
+            child: Text(
+              "Bpm",
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
