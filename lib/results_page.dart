@@ -25,7 +25,9 @@ class _ResultsPageState extends State<ResultsPage> {
       leading: Padding(
         padding: const EdgeInsets.only(left: 20.0),
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.pop(context, '/start-measure');
+          },
           child: Icon(Icons.arrow_back_ios),
         ),
       ),

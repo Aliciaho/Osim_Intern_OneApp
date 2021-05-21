@@ -21,7 +21,10 @@ class _StartMeasurePageState extends State<StartMeasurePage> {
       leading: Padding(
         padding: const EdgeInsets.only(left: 20.0),
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            //Testing
+            Navigator.pushNamed(context, '/results-page');
+          },
           child: Icon(Icons.arrow_back_ios),
         ),
       ),

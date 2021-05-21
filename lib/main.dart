@@ -13,7 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: basicTheme(),
-      home: ResultsPage(),
+      home: StartMeasurePage(),
+      routes: {
+        '/start-measure': (context) => StartMeasurePage(),
+        '/results-page': (context) => ResultsPage(),
+      },
     );
   }
 }
